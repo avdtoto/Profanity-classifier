@@ -28,6 +28,6 @@
 
 ## Файлы 
 
-- [wb_winter_school_best_version.ipynb](https://github.com/avdtoto/wb_winter/wb_winter_school_best_version.ipynb) тетрадь с результатами 
-- [submission.csv](https://github.com/avdtoto/wb_winter/submission.csv) прогнозы на оригинальном тестовом наборе
+- [wb_winter_school_best_version.ipynb](/wb_winter_school_best_version.ipynb) тетрадь с результатами 
+- [submission.csv](/submission.csv) прогнозы на оригинальном тестовом наборе
 
