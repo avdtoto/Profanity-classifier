@@ -31,4 +31,5 @@
 - [wb_winter_school_best_version.ipynb](/wb_winter_school_best_version.ipynb) тетрадь с результатами 
 - [submission.csv](/submission.csv) прогнозы на оригинальном тестовом наборе
 - [wb_winter_school.pdf](/wb_winter_school.pdf) презентация работы
+- [kaspi](/kaspi_short.csv) файл с данными для аугментации 
 
