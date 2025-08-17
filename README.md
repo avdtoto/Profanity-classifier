@@ -1,35 +1,32 @@
-# Детекция ненормативной лексики с помощью RuBERT-base
+# Profanity Detection with BERT-base model
 
-В этом проекте я использовала RuBERT для создания надежного классификатора для классификации текста на две категории: нормальный текст и ненорматвный. Проект включал обучение модели классификации последовательностей, оптимизацию гиперпараметров и эксперименты с различными методами предварительной обработки (аугментация русскими комментариями с https://kaspi.kz и исскуственным добавлением нецензурных слов, использование большой модели ruBert-large и более сложную предобработку данных). Наилучший результат, в моем случае, показала базовая модель без дополнения данных или сложной предварительной обработки, которая и представлена здесь.
+In this project, I used RuBERT to build a reliable classifier for categorizing text into two classes: normal text and profane text. The project involved training a sequence classification model, hyperparameter optimization, and experiments with various preprocessing methods (augmentation with Russian comments from https://kaspi.kz and artificial insertion of profane words, using the larger ruBERT-large model, and more complex preprocessing). The best results, in my case, were achieved with the base model without additional data augmentation or complex preprocessing, which is the version presented here.
 
-## Основные характеристики
+## Key Features
 
-- `Предварительно обученная модель` я использовала **DeepPavlov/rubert-base-cased** для классификации последовательностей
--  `Токенизация` токенизированный входной текст c autotokenizer
-- `Оптимизация гиперпараметров` использовала **Optuna** для настройки скорости обучения, количества шагов и эпох для оптимизации модели
-- `Обработка дисбаланса классов` взвешенная loss function  для устранения несбалансированности классов в наборе данных
-- `Оценка модели` F1 score
+- Pretrained model: used `DeepPavlov/rubert-base-cased` for sequence classification
+- Tokenization: input text tokenized with AutoTokenizer
+- Hyperparameter optimization: used `Optuna` to tune learning rate, number of steps, and epochs
+- Handling class imbalance: applied weighted loss function to mitigate dataset imbalance
+- Model evaluation: F1 score
 
-## Обучение модели
+## Model Training
 
-Обучение включало:
+- Optimizer: AdamW with learning rate `6.6875e-06`
+- Scheduler: adjusted learning rate for training stability (`num warmup steps: 357`)
+- Training epochs: `3`
 
-- Использование оптимизатора `AdamW` со скоростью обучения `6.6875e-06` 
-- Планировщик для корректировки скорости обучения для повышения стабильности обучения `num warmup steps: 357`
-- Эпохи обучения `3`
+## Results
 
-## Результаты
+The best version of the model, without additional augmentation or preprocessing, achieved the following results:
 
-Лучшая версия модели без дополнительной аугментации или предварительной обработки показала следующие результаты:
+- Test F1 score: 0.980
+- Original Kaggle test F1 score: 0.9542
 
-- `Оценка валидации F1` **0,981**
-- `Оценка теста F1` **0,980**
-- `Оценка оригинального теста F1 на Kaggle` **0,9242**
+## Files
 
-## Файлы 
-
-- [wb_winter_school_best_version.ipynb](/wb_winter_school_best_version.ipynb) тетрадь с результатами 
-- [submission.csv](/submission.csv) прогнозы на оригинальном тестовом наборе
-- [wb_winter_school.pdf](/wb_winter_school.pdf) презентация работы
-- [kaspi](/kaspi_short.csv) файл с данными для аугментации 
+- [wb_winter_school_best_version.ipynb](/wb_winter_school_best_version.ipynb) notebook with results 
+- [submission.csv](/submission.csv) predictions on the original test set
+- [wb_winter_school.pdf](/wb_winter_school.pdf) presentation of the work
+- [kaspi](/kaspi_short.csv) dataset used for augmentation
 
